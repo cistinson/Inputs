@@ -1,0 +1,226 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Input List</title>
+
+    <style>
+      table, td, th{
+        border: 2px solid black;
+        border-collapse: collapse;
+        padding: 10px;        
+      }
+      
+      table{
+        background-color: aliceblue;
+      }
+      
+      th{
+        background-color: aquamarine;
+      }
+      
+      
+    </style>
+      <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+  </head>
+
+  <body>
+    
+    <table>
+      <tr>
+        <th>Control Type</th>
+        <th>Control</th>
+        <th>Value Entered</th>
+      </tr>
+      <tr>
+        <td>input type="checkbox"</td>
+        <td><input type="checkbox" id="checkboxValue"></td>
+        <td><span id="checkboxValue2"></span></td>
+      </tr>
+      <tr>
+        <td>input type="color"</td>
+        <td><input type="color" id="colorValue"></td>
+        <td id="colorValue2"></td>
+      </tr>
+      <tr>
+        <td>input type="date"</td>
+        <td><input type="date" id="dateValue" value="1990-04-22"></td>
+        <td id="dateValue2"></td>
+      </tr>
+      <tr>
+        <td>input type="datetime-local"</td>
+        <td><input type="datetime-local" id="dateTimeValue" value="2000-10-10T10:10:30"></td>
+        <td id="dateTimeValue2"></td>
+      </tr>
+      <tr>
+        <td>input type="email"</td>
+        <td><input type="email" id="emailValue" value="hello@gmail.com"></td>
+        <td id="emailValue2"></td>
+      </tr>
+      <tr>
+        <td>input type="month"</td>
+        <td><input type="month" id="monthValue" value="1990-04"></td>
+        <td id="monthValue2"></td>
+      </tr>
+      <tr>
+        <td>input type="number"</td>
+        <td><input type="number" id="numberValue" value="1337"></td>
+        <td id="numberValue2"></td>
+      </tr>
+      <tr>
+        <td>input type="password"</td>
+        <td><input type="password" id="passwordValue" value="password"></td>
+        <td id="passwordValue2"></td>
+      </tr>
+      <tr>
+        <td>input type="radio"</td>
+        <td>
+          <div id="radioValue">
+            <input type="radio" name="radioButton" value="1st" checked="checked">First<br />
+            <input type="radio" name="radioButton" value="2nd">Second<br />
+            <input type="radio" name="radioButton" value="3rd">Third <br />
+            <input type="radio" name="radioButton" value="4th">Fourth
+          </div>
+        </td>
+        <td id="radioValue2"></td>
+      </tr>
+      <tr>
+        <td>input type="range"</td>
+        <td><input type="range"  id="valueRange"></td>
+        <td id="valueRange2"></td>
+      </tr>
+      <tr>
+        <td>input type="search"</td>
+        <td><input type="search" id="searchValue" value="Searching..."></td>
+        <td id="searchValue2"></td>
+      </tr>
+      <tr>
+        <td>input type="tel"</td>
+        <td><input type="tel" id="telValue" value="208-464-1111"></td>
+        <td id="telValue2"></td>
+      </tr>  
+      <tr>
+        <td>input type="text"</td>
+        <td><input type="text" id="textValue" value="Some text"></td>
+        <td id="textValue2"></td>
+      </tr>  
+      <tr>
+        <td>input type="time"</td>
+        <td><input type="time" id="timeValue" value="10:30:00"></td>
+        <td id="timeValue2"></td>
+      </tr>  
+      <tr>
+        <td>input type="url"</td>
+        <td><input type="url" id="urlValue" value="http://google.com"></td>
+        <td id="urlValue2"></td>
+      </tr>
+    </table>
+    
+    <script>
+
+     $(document).ready(function() {
+       
+       //Checkbox Value       
+       $('#checkboxValue2').html("Not Checked");
+       $('#checkboxValue').click(function() { 
+            if ($(this).is(':checked')) {
+                $('#checkboxValue2').html("Checked");
+            } else {
+                $('#checkboxValue2').html("Not Checked");
+            }
+        });
+       
+       //Color Value       
+       $('#colorValue2').html($('#colorValue').val());
+       $('#colorValue').on("input", function(){
+         $('#colorValue2').html($('#colorValue').val())
+       });
+        
+       //Date Value
+       $('#dateValue2').html($('#dateValue').val());
+       $('#dateValue').on("input", function(){
+         $('#dateValue2').html($('#dateValue').val())
+       });
+       
+       //DateTime Local Value
+       $('#dateTimeValue2').html($('#dateTimeValue').val());
+       $('#dateTimeValue').on("input", function(){
+         $('#dateTimeValue2').html($('#dateTimeValue').val())
+       });
+       
+       //Email Value
+       $('#emailValue2').html($('#emailValue').val());
+       $('#emailValue').on("input", function(){
+         $('#emailValue2').html($('#emailValue').val())
+       });
+       
+       //Month Value
+       $('#monthValue2').html($('#monthValue').val());
+       $('#monthValue').on("input", function(){
+         $('#monthValue2').html($('#monthValue').val())
+       });
+       
+       //Number Value
+       $('#numberValue2').html($('#numberValue').val());
+       $('#numberValue').on("input", function(){
+         $('#numberValue2').html($('#numberValue').val())
+       });
+       
+       //Password Value
+       
+       $('#passwordValue2').html($('#passwordValue').val());
+       $('#passwordValue').on("input", function(){
+         $('#passwordValue2').html($('#passwordValue').val())
+       });
+       
+       //Radio Value
+       var radioValue = $("input[name='radioButton']:checked").val();
+       $('#radioValue2').html(radioValue);
+        $("input[type='radio']").click(function(){
+          var radioValue = $("input[name='radioButton']:checked").val();
+          $('#radioValue2').html(radioValue);
+        });
+       
+       //Range Value
+       $('#valueRange2').html($('#valueRange').val());
+       $('#valueRange').on("input", function(){
+         $('#valueRange2').html($('#valueRange').val())
+       });
+       
+       //Search Value
+       $('#searchValue2').html($('#searchValue').val());
+       $('#searchValue').on("input", function(){
+         $('#searchValue2').html($('#searchValue').val())
+       });
+       
+       //Tel Value
+       $('#telValue2').html($('#telValue').val());
+       $('#telValue').on("input", function(){
+         $('#telValue2').html($('#telValue').val())
+       });
+       
+       //Text Value
+       $('#textValue2').html($('#textValue').val());
+       $('#textValue').on("input", function(){
+         $('#textValue2').html($('#textValue').val())
+       });
+       
+       //Time Value
+       $('#timeValue2').html($('#timeValue').val());
+       $('#timeValue').on("input", function(){
+         $('#timeValue2').html($('#timeValue').val())
+       });
+       
+       //URL Value
+       $('#urlValue2').html($('#urlValue').val());
+       $('#urlValue').on("input", function(){
+         $('#urlValue2').html($('#urlValue').val())
+       });
+       
+    
+     });
+    </script>
+  </body>
+</html>
